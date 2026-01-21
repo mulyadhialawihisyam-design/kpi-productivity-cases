@@ -3,8 +3,77 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dashboard Karyawan — Mulya Team (ACV M + ACV D)</title>
+<title>Dashboard Karyawan — Mulya Team</title>
 <style>
+#login-screen{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at top,#111,#000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.login-box{
+  width:340px;
+  padding:28px;
+  background:rgba(10,10,10,.85);
+  border-radius:16px;
+  text-align:center;
+  border:2px solid transparent;
+  animation:lightning 1.5s infinite;
+  box-shadow:0 0 40px rgba(255,0,0,.15);
+}
+
+@keyframes lightning{
+  0%{border-color:#ffb703}
+  50%{border-color:#ff0033}
+  100%{border-color:#ffb703}
+}
+
+.login-box h2{
+  margin:0;
+  font-size:22px;
+  color:#ffcc00;
+  letter-spacing:1px;
+}
+
+.login-box p{
+  margin:6px 0 18px;
+  font-size:13px;
+  color:#aaa;
+}
+
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #333;
+  background:#000;
+  color:#fff;
+  font-size:14px;
+}
+
+.login-box button{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:800;
+  background:linear-gradient(135deg,#ffcc00,#ff9900);
+  color:#000;
+}
+
+#loginError{
+  display:none;
+  margin-top:10px;
+  color:#ff4d4f;
+  font-size:12px;
+}
+
 :root{
   --bg:#071022;
   --panel: rgba(255,255,255,0.04);
@@ -109,6 +178,19 @@ h1{ font-size:20px; margin:0; }
 </style>
 </head>
 <body>
+<div id="login-screen">
+  <div class="login-box">
+    <h2>Mulya Team</h2>
+    <p>Dashboard KPI Internal</p>
+
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
+
+    <button id="loginBtn">Masuk Dashboard</button>
+    <div id="loginError">Username atau password salah</div>
+  </div>
+</div>
+
   <div class="wrap">
     <header>
       <div>
@@ -515,6 +597,20 @@ $("#btnClearCache").addEventListener("click", ()=> {
 
 /* START */
 loadAndRender(false);
+const LOGIN_USER = "Admin";
+const LOGIN_PASS = "Mulya.ID";
+
+document.getElementById("loginBtn").onclick = ()=>{
+  const u = document.getElementById("loginUser").value.trim();
+  const p = document.getElementById("loginPass").value.trim();
+
+  if(u === LOGIN_USER && p === LOGIN_PASS){
+    document.getElementById("login-screen").style.display = "none";
+  }else{
+    document.getElementById("loginError").style.display = "block";
+  }
+};
+
 </script>
 </body>
 </html>
