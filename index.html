@@ -1,9 +1,91 @@
-!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <title>Gambar</title>
+  <meta charset="UTF-8" />
+  <title>404 - Mulya.ID</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://i.imgur.com/y527yy7.png') no-repeat center center fixed;
+      background-size:cover;
+      overflow:hidden;
+      font-family:"Poppins", "Segoe UI", sans-serif;
+    }
+
+    /* AREA 404 DI SAMPING ROBOT */
+    .error-wrap{
+      position:absolute;
+      top:50%;
+      left:6%;
+      transform:translateY(-50%);
+    }
+
+    .error-404{
+      font-size:140px; /* ukuran ideal, jelas terbaca */
+      font-weight:800;
+      letter-spacing:8px;
+      color:#ff3b3b;
+      text-shadow:
+        0 0 10px rgba(255,59,59,0.7),
+        0 0 30px rgba(255,59,59,0.4),
+        0 0 60px rgba(255,59,59,0.2);
+      animation: colorBlink 3s infinite;
+    }
+
+    /* ANIMASI WARNA BERKEDIP */
+    @keyframes colorBlink{
+      0%{
+        color:#ff3b3b; /* merah */
+        text-shadow:0 0 12px rgba(255,59,59,.8),0 0 40px rgba(255,59,59,.5);
+      }
+      33%{
+        color:#facc15; /* kuning */
+        text-shadow:0 0 12px rgba(250,204,21,.8),0 0 40px rgba(250,204,21,.5);
+      }
+      66%{
+        color:#3b82f6; /* biru */
+        text-shadow:0 0 12px rgba(59,130,246,.8),0 0 40px rgba(59,130,246,.5);
+      }
+      100%{
+        color:#ff3b3b;
+        text-shadow:0 0 12px rgba(255,59,59,.8),0 0 40px rgba(255,59,59,.5);
+      }
+    }
+
+    /* SUBTEXT DALAM PERBAIKAN */
+    .error-sub{
+      margin-top:8px;
+      font-size:20px;
+      letter-spacing:4px;
+      color:#facc15; /* KUNING FIX */
+      text-transform:uppercase;
+      opacity:0.95;
+      text-shadow:0 0 10px rgba(250,204,21,0.6);
+    }
+
+    @media(max-width:900px){
+      .error-404{
+        font-size:96px;
+        letter-spacing:4px;
+      }
+      .error-sub{
+        font-size:16px;
+        letter-spacing:3px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/y527yy7.png" alt="Gambar">
+
+  <div class="error-wrap">
+    <div class="error-404">404</div>
+    <div class="error-sub">- Dalam perbaikan -</div>
+  </div>
+
 </body>
 </html>
